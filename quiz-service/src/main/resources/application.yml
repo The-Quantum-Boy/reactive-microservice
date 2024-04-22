@@ -1,0 +1,19 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: quiz-service
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/reactive
+    username: postgres
+    password: sumit
+
+
+eureka:
+  instance:
+    client:
+      serverUrl:
+      defaultZone: http://localhost:8761/eureka/

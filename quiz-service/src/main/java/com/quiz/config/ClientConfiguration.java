@@ -8,7 +8,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class ClientConfiguration {
 
 
-    public static final String baseUrl="http://localhost:8082";
+    public static final String baseUrl="http://QUESTION-SERVICE";
 
     @Bean
     public WebClient webClient() {
