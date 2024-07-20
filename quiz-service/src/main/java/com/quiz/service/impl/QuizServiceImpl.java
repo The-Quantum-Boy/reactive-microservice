@@ -32,7 +32,6 @@ public class QuizServiceImpl implements QuizService {
     @Override
     public Flux<Quiz> get() {
         Flux<Quiz> quizes = quizRepository.findAll();
-
         return quizes.flatMap(q -> {
             return routeService.getQuestionOfQuiz(q.getId())
                     .collectList()

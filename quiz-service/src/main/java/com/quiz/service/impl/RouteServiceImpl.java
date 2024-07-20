@@ -13,15 +13,16 @@ public class RouteServiceImpl implements RouteService {
 
 
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClient;
 
 
     @Override
     public Flux<Question> getQuestionOfQuiz(Long quizId) {
 
-        return webClient.get()
-                .uri("/ques/getByQuizId/"+quizId)
+        return webClient.build().get()
+                .uri("http://question-service/ques/getByQuizId/"+quizId)
                 .retrieve()
-                .bodyToFlux(Question.class);
+                .bodyToFlux(Question.class)
+                .doOnError(System.out::println);
     }
 }
